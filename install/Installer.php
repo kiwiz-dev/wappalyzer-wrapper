@@ -28,9 +28,12 @@ class Installer implements PluginInterface, EventSubscriberInterface
     {
         $output = $event->getIo();
         $composer = $event->getComposer();
+        /*
         $wappalyzerWrapperDirectory = $composer->getInstallationManager()->getInstallPath(
             $composer->getRepositoryManager()->findPackage("silktide/wappalyzer-wrapper", "*")
         );
+        */
+        $wappalyzerWrapperDirectory = 'vendor/silktide/wappalyzer-wrapper';
 
         exec('npm -v', $npmVersion, $exitCode);
         $output->write("<info>npm version: {$npmVersion[0]}</info>");

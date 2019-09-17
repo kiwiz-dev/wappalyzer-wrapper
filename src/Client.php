@@ -65,7 +65,7 @@ class Client
     {
 
         $path = realpath(__DIR__.'/../node_modules/wappalyzer/index.js');
-        return $this->executeCommandAndReturnResult('nodejs '.$path.' '.$url);
+        return $this->executeCommandAndReturnResult('node '.$path.' '.$url);
     }
 
     /**
