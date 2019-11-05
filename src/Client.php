@@ -65,7 +65,7 @@ class Client
     {
 
         $path = realpath(__DIR__.'/../node_modules/wappalyzer/index.js');
-        return $this->executeCommandAndReturnResult('node '.$path.' '.$url);
+        return $this->executeCommandAndReturnResult('node '.$path.' '.$url . '  --max-urls=25 --max-depth=3');
     }
 
     /**
@@ -81,7 +81,7 @@ class Client
         $filename = $this->jsonFileWriter->writeToTempFile($request);
 
         // Execute
-        $result = $this->executeCommandAndReturnResult('nodejs '.$path.' '.$filename);
+        $result = $this->executeCommandAndReturnResult('node '.$path.' '.$filename);
 
         // Clean up temp json file
         $this->jsonFileWriter->remove($filename);
