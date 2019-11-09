@@ -64,7 +64,7 @@ class Client
     public function analyse(string $url)
     {
 
-        $path = realpath(__DIR__.'/../node_modules/wappalyzer/index.js');
+        $path = realpath(__DIR__.'/../node_modules/wappalyzer/cli.js');
         return $this->executeCommandAndReturnResult('node '.$path.' '.$url . '  --max-urls=25 --max-depth=3 --max-wait=3000');
     }
 
