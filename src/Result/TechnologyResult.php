@@ -15,12 +15,12 @@ class TechnologyResult
     protected $confidence;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $version;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $website;
 
@@ -51,11 +51,11 @@ class TechnologyResult
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getConfidence(): string
+    public function getConfidence(): int
     {
-        return $this->confidence;
+        return isset($this->confidence) && is_numeric($this->confidence) ? $this->confidence : 100;
     }
 
     /**
@@ -83,9 +83,9 @@ class TechnologyResult
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getWebsite(): string
+    public function getWebsite(): ?string
     {
         return $this->website;
     }
