@@ -65,7 +65,7 @@ class Client
     {
 
         $path = realpath(__DIR__.'/../node_modules/wappalyzer/cli.js');
-        return $this->executeCommandAndReturnResult('node --max-old-space-size=2048 '.$path.' "'.$url . '"  --max-urls=25 --max-depth=3 --max-wait=3000');
+        return $this->executeCommandAndReturnResult('node --max-old-space-size=2048 '.$path.' "'.$url . '" --max-urls=10 --max-depth=2 --max-wait=3000');
     }
 
     /**
@@ -81,7 +81,7 @@ class Client
         $filename = $this->jsonFileWriter->writeToTempFile($request);
 
         // Execute
-        $result = $this->executeCommandAndReturnResult('node --max-old-space-size=2048 '.$path.' '.$filename . '  --max-urls=25 --max-depth=3 --max-wait=3000');
+        $result = $this->executeCommandAndReturnResult('node --max-old-space-size=2048 '.$path.' '.$filename . '  --max-urls=10 --max-depth=2 --max-wait=3000');
 
         // Clean up temp json file
         $this->jsonFileWriter->remove($filename);
